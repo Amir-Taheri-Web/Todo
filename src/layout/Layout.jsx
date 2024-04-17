@@ -3,6 +3,7 @@ import { FaListCheck } from "react-icons/fa6";
 import { MdAddCircle } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import styles from "@/styles/Layout.module.css";
+import { Toaster } from "react-hot-toast";
 
 const Layout = ({ children }) => {
   return (
@@ -11,6 +12,7 @@ const Layout = ({ children }) => {
         <Link href="/">
           <h1>Todo App</h1>
         </Link>
+        <Toaster />
       </header>
 
       <div className={styles.container}>
