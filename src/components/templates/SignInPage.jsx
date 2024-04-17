@@ -25,8 +25,11 @@ const SignInPage = () => {
       setIsLoading(false);
 
       if (!res.error) {
-        toast.success(res.message);
+        toast.success("Logged in!");
         router.push("/");
+      } else {
+        setIsLoading(false);
+        toast.error(res.error);
       }
     } catch (error) {
       setIsLoading(false);
