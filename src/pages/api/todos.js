@@ -33,6 +33,7 @@ const handler = async (req, res) => {
 
     try {
       await user.todos.push({ title, description, status });
+      await user.save();
 
       return res
         .status(200)
