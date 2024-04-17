@@ -3,31 +3,35 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import styles from "@/styles/SignUpPage.module.css";
 
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
 
   const signUpHandler = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     try {
       const res = await api.post("/api/auth/signup", { email, password });
-      console.log(res);
+      setIsLoading(false);
 
       if (res.status === "success") {
         toast.success(res.message);
         router.push("/signin");
       }
     } catch (error) {
+      setIsLoading(false);
       toast.error(error.message);
     }
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <h2>Create Account</h2>
 
       <form onSubmit={signUpHandler}>
@@ -45,7 +49,7 @@ const SignUpPage = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit">Register</button>
+        <button type="submit" disabled={isLoading}>Register</button>
       </form>
 
       <p>
