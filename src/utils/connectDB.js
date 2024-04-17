@@ -16,6 +16,7 @@ const connectDB = async (res) => {
         status: "failure",
         message: "Failed to connect to database",
       });
+      return;
   }
 };
 
