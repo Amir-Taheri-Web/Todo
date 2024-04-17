@@ -1,0 +1,100 @@
+/* CSS RESET START */
+:root {
+  font-family: "";
+  font-weight: 300;
+  line-height: 1.3;
+
+  /* colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text: #525252;
+  --color-one: #4793af;
+  --color-two: #ffc470;
+  --color-three: #dd5746;
+  --color-four: #8b322c;
+}
+
+html {
+  font-family: "";
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  display: inline-block;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+p {
+  line-height: 1.5;
+}
+
+input {
+  outline: none;
+}
+
+ol,
+ul {
+  list-style: none;
+  display: flex;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+body {
+  min-height: 100vh;
+  background-color: inherit;
+}
+/* CSS RESET END */
