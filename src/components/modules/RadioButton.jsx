@@ -1,6 +1,8 @@
+import styles from "@/styles/RadioButton.module.css";
+
 const RadioButton = ({ value, status, setStatus, title }) => {
   return (
-    <div>
+    <div className={`${styles.container} ${styles[value]}`}>
       <input
         type="radio"
         id={value}

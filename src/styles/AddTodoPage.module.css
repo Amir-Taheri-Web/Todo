@@ -1,0 +1,56 @@
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin: 2rem;
+  width: fit-content;
+}
+
+.textInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.textInput label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 25rem;
+}
+
+.textInput input,
+.textInput textarea {
+  border: none;
+  outline: none;
+  box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.7rem 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  border-radius: 5px;
+}
+
+.textInput textarea {
+  resize: vertical;
+  height: 5rem;
+}
+
+.container form button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--color-one);
+  color: var(--color-white);
+}
+
+.container form button:disabled {
+  opacity: 0.5;
+}
+
+.radio {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

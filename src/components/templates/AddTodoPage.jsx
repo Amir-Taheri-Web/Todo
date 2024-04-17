@@ -2,6 +2,7 @@ import { useState } from "react";
 import RadioButton from "../modules/RadioButton";
 import api from "@/configs/axios";
 import toast from "react-hot-toast";
+import styles from "@/styles/AddTodoPage.module.css";
 
 const AddTodoPage = () => {
   const [title, setTitle] = useState("");
@@ -36,9 +37,9 @@ const AddTodoPage = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <form onSubmit={addHandler}>
-        <div>
+        <div className={styles.textInput}>
           <label htmlFor="title">Title:</label>
           <input
             type="text"
@@ -48,7 +49,7 @@ const AddTodoPage = () => {
           />
         </div>
 
-        <div>
+        <div className={styles.textInput}>
           <label htmlFor="description">Description:</label>
           <textarea
             id="description"
@@ -57,7 +58,7 @@ const AddTodoPage = () => {
           ></textarea>
         </div>
 
-        <div>
+        <div className={styles.radio}>
           <RadioButton
             value="todo"
             status={status}
@@ -87,7 +88,9 @@ const AddTodoPage = () => {
           />
         </div>
 
-        <button type="submit">Add</button>
+        <button type="submit" disabled={isLoading}>
+          Add
+        </button>
       </form>
     </div>
   );
