@@ -4,6 +4,7 @@ import connectDB from "@/utils/connectDB";
 import { validateEmail, validatePassword } from "@/utils/validate";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { getSession } from "next-auth/react";
 
 const authOptions = {
   session: { strategy: "jwt" },
@@ -15,6 +16,10 @@ const authOptions = {
         } catch (error) {
           throw new Error("Connection to database failed");
         }
+
+        const session = await getSession({ req });
+
+        if (session) throw new Error("You are already signed in!");
 
         const { email, password } = credentials;
 
