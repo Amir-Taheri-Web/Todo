@@ -1,0 +1,53 @@
+.header {
+  background-color: var(--color-one);
+  padding: 2rem 2rem 5rem;
+}
+
+.header h1 {
+  color: var(--color-white);
+}
+
+.main {
+  padding: 2rem;
+}
+
+.aside {
+  box-shadow: 3px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: calc(14rem + 5vw);
+  position: relative;
+  top: -3rem;
+  background-color: var(--color-white);
+  border-top-right-radius: 30px;
+}
+
+.aside p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.aside ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.aside ul li a {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease-in;
+}
+
+.aside ul li a:hover {
+  color: var(--color-black);
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
