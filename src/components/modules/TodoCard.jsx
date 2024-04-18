@@ -39,7 +39,7 @@ const TodoCard = ({
               </button>
             )}
 
-            <Link href={`/api/edit-todo/${todo._id}`}>
+            <Link href={`/edit-todo/${todo._id}`}>
               <RiEditFill />
             </Link>
 
