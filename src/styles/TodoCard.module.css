@@ -1,0 +1,45 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.list li {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.list li h4 {
+  font-size: 1.1rem;
+}
+
+.list li span {
+  display: block;
+  width: 50%;
+  height: 3px;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.todo {
+  background-color: var(--color-two);
+}
+
+.inProgress {
+  background-color: var(--color-three);
+}
+
+.review {
+  background-color: var(--color-four);
+}
+
+.done {
+  background-color: var(--color-one);
+}
+
+.list li p {
+  color: var(--color-text);
+  font-size: 1rem;
+}

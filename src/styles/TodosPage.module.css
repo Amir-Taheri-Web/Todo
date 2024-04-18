@@ -1,0 +1,40 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 4rem;
+  width: 100%;
+}
+
+.container > div {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.container h3 {
+  text-align: center;
+  color: var(--color-white);
+  padding: 0.3rem;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  font-size: 1.2rem;
+}
+
+.todo {
+  background-color: var(--color-two);
+}
+
+.inProgress {
+  background-color: var(--color-three);
+}
+
+.review {
+  background-color: var(--color-four);
+}
+
+.done {
+  background-color: var(--color-one);
+}
