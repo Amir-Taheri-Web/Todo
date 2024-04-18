@@ -43,3 +43,40 @@
   color: var(--color-text);
   font-size: 1rem;
 }
+
+.list div {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.list div button {
+  background-color: var(--color-four);
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+#todo button {
+  background-color: var(--color-two);
+}
+
+#inProgress button {
+  background-color: var(--color-three);
+}
+
+#review button {
+  background-color: var(--color-four);
+}
+
+#done button {
+  background-color: var(--color-one);
+}

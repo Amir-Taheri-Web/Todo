@@ -1,4 +1,5 @@
 import styles from "@/styles/TodoCard.module.css";
+import { IoCaretBack, IoCaretForward } from "react-icons/io5";
 
 const TodoCard = ({ todos, status, back, next, statusHandler }) => {
   return (
@@ -8,12 +9,13 @@ const TodoCard = ({ todos, status, back, next, statusHandler }) => {
           <h4>{todo.title}</h4>
           <span className={styles[status]}></span>
           <p>{todo.description}</p>
-          <div>
+          <div id={styles[status]}>
             {back && (
               <button
                 type="button"
                 onClick={() => statusHandler(back, todo._id)}
               >
+                <IoCaretBack />
                 Back
               </button>
             )}
@@ -23,6 +25,7 @@ const TodoCard = ({ todos, status, back, next, statusHandler }) => {
                 onClick={() => statusHandler(next, todo._id)}
               >
                 Next
+                <IoCaretForward />
               </button>
             )}
           </div>
