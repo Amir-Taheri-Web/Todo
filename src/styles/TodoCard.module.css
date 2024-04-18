@@ -55,7 +55,7 @@
 .list div button {
   background-color: var(--color-four);
   color: var(--color-white);
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 600;
   padding: 0.5rem 0.6rem;
   border-radius: 5px;
@@ -85,5 +85,12 @@
   background: none !important;
   color: var(--color-text) !important;
   font-size: 1.4rem !important;
+  /* margin-left: auto; */
+}
+
+.list li a {
+  font-size: 1.4rem;
   margin-left: auto;
+  color: var(--color-text);
+  margin-top: 5px;
 }
