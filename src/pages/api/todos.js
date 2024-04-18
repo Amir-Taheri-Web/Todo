@@ -54,7 +54,9 @@ const handler = async (req, res) => {
     try {
       const todos = sortTodos(user.todos);
 
-      return res.status(200).json({ code: 200, status: "success", data: todos });
+      return res
+        .status(200)
+        .json({ code: 200, status: "success", data: todos });
     } catch (error) {
       console.log(error);
 
@@ -62,6 +64,33 @@ const handler = async (req, res) => {
         code: 500,
         status: "failure",
         message: "Connection to server failed",
+      });
+    }
+  }
+
+  if (req.method === "PATCH") {
+    const { status, id } = req.body;
+
+    if (!status || !id)
+      return res.status(422).json({
+        code: 422,
+        status: "failure",
+        message: "Something went wrong. Try again",
+      });
+
+    try {
+      await User.findByIdAndUpdate(id, { $set: { "todos.$.status": status } });
+
+      return res
+        .status(200)
+        .json({ code: 200, status: "success", message: "Updated!" });
+    } catch (error) {
+      console.log(error);
+
+      return res.status(500).json({
+        code: 500,
+        status: "failure",
+        message: "Connection to server failed. Try again",
       });
     }
   }
