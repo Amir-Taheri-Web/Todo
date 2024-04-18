@@ -3,12 +3,16 @@ import RadioButton from "../modules/RadioButton";
 import api from "@/configs/axios";
 import toast from "react-hot-toast";
 import styles from "@/styles/AddTodoPage.module.css";
+import { useRouter } from "next/router";
 
-const AddTodoPage = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("todo");
+const AddTodoPage = ({ type, todo }) => {
+  const [title, setTitle] = useState(todo?.title || "");
+  const [description, setDescription] = useState(todo?.description || "");
+  const [status, setStatus] = useState(todo?.status || "todo");
   const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
+  const { todoId } = router.query;
 
   const addHandler = async (event) => {
     event.preventDefault();
@@ -36,9 +40,33 @@ const AddTodoPage = () => {
     }
   };
 
+  const editHandler = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const res = await api.patch(`/api/todo/edit/${todoId}`, {
+        title,
+        status,
+        description,
+      });
+
+      setIsLoading(false);
+
+      if (res.status === "success") {
+        toast.success(res.message);
+
+        router.push("/");
+      }
+    } catch (error) {
+      setIsLoading(false);
+      toast.error(error.message);
+    }
+  };
+
   return (
     <div className={styles.container}>
-      <form onSubmit={addHandler}>
+      <form onSubmit={type === "add" ? addHandler : editHandler}>
         <div className={styles.textInput}>
           <label htmlFor="title">Title:</label>
           <input
@@ -89,7 +117,7 @@ const AddTodoPage = () => {
         </div>
 
         <button type="submit" disabled={isLoading}>
-          Add
+          {type === "add" ? "Add" : "Edit"}
         </button>
       </form>
     </div>
