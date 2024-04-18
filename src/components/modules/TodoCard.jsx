@@ -1,6 +1,8 @@
 import styles from "@/styles/TodoCard.module.css";
 import { IoCaretBack, IoCaretForward } from "react-icons/io5";
 import { FaTrashCan } from "react-icons/fa6";
+import { RiEditFill } from "react-icons/ri";
+import Link from "next/link";
 
 const TodoCard = ({
   todos,
@@ -37,7 +39,15 @@ const TodoCard = ({
               </button>
             )}
 
-            <button type="button" onClick={() => deleteHandler(todo._id)} className={styles.delete}>
+            <Link href={`/api/edit-todo/${todo._id}`}>
+              <RiEditFill />
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => deleteHandler(todo._id)}
+              className={styles.delete}
+            >
               <FaTrashCan />
             </button>
           </div>
