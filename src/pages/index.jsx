@@ -1,9 +1,7 @@
+import TodosPage from "@/components/templates/TodosPage";
+
 const Home = () => {
-  return (
-    <div>
-      <h1>main page</h1>
-    </div>
-  );
+  return <TodosPage />;
 };
 
 export default Home;
