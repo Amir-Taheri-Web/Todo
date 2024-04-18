@@ -1,7 +1,15 @@
 import styles from "@/styles/TodoCard.module.css";
 import { IoCaretBack, IoCaretForward } from "react-icons/io5";
+import { FaTrashCan } from "react-icons/fa6";
 
-const TodoCard = ({ todos, status, back, next, statusHandler }) => {
+const TodoCard = ({
+  todos,
+  status,
+  back,
+  next,
+  statusHandler,
+  deleteHandler,
+}) => {
   return (
     <ul className={styles.list}>
       {todos[status]?.map((todo) => (
@@ -28,6 +36,10 @@ const TodoCard = ({ todos, status, back, next, statusHandler }) => {
                 <IoCaretForward />
               </button>
             )}
+
+            <button type="button" onClick={() => deleteHandler(todo._id)}>
+              <FaTrashCan />
+            </button>
           </div>
         </li>
       ))}

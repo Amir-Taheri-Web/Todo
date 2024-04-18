@@ -44,6 +44,19 @@ const TodosPage = () => {
     }
   };
 
+  const deleteHandler = async (id) => {
+    try {
+      const res = await api.delete(`api/todo/delete/${id}`);
+
+      if (res.status === "success") {
+        fetchTodos2();
+        toast.success(res.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
   useEffect(() => {
     fetchTodos();
   }, []);
@@ -58,6 +71,7 @@ const TodosPage = () => {
           todos={todos}
           status="todo"
           statusHandler={statusHandler}
+          deleteHandler={deleteHandler}
           next="inProgress"
         />
       </div>
@@ -68,6 +82,7 @@ const TodosPage = () => {
           todos={todos}
           status="inProgress"
           statusHandler={statusHandler}
+          deleteHandler={deleteHandler}
           back="todo"
           next="review"
         />
@@ -79,6 +94,7 @@ const TodosPage = () => {
           todos={todos}
           status="review"
           statusHandler={statusHandler}
+          deleteHandler={deleteHandler}
           back="inProgress"
           next="done"
         />
@@ -90,6 +106,7 @@ const TodosPage = () => {
           todos={todos}
           status="done"
           statusHandler={statusHandler}
+          deleteHandler={deleteHandler}
           back="review"
         />
       </div>
