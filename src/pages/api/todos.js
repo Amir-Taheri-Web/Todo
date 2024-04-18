@@ -79,7 +79,10 @@ const handler = async (req, res) => {
       });
 
     try {
-      await User.findByIdAndUpdate(id, { $set: { "todos.$.status": status } });
+      await User.findOneAndUpdate(
+        { "todos._id": id },
+        { $set: { "todos.$.status": status } }
+      );
 
       return res
         .status(200)
