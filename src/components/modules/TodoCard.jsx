@@ -37,7 +37,7 @@ const TodoCard = ({
               </button>
             )}
 
-            <button type="button" onClick={() => deleteHandler(todo._id)}>
+            <button type="button" onClick={() => deleteHandler(todo._id)} className={styles.delete}>
               <FaTrashCan />
             </button>
           </div>

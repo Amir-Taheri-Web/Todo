@@ -47,7 +47,7 @@
 .list div {
   display: flex;
   gap: 2rem;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   margin-top: 3rem;
 }
@@ -55,9 +55,9 @@
 .list div button {
   background-color: var(--color-four);
   color: var(--color-white);
-  font-size: 1rem;
+  font-size: .9rem;
   font-weight: 600;
-  padding: 0.5rem 0.7rem;
+  padding: 0.5rem 0.6rem;
   border-radius: 5px;
   cursor: pointer;
   display: flex;
@@ -79,4 +79,11 @@
 
 #done button {
   background-color: var(--color-one);
+}
+
+.delete {
+  background: none !important;
+  color: var(--color-text) !important;
+  font-size: 1.4rem !important;
+  margin-left: auto;
 }
