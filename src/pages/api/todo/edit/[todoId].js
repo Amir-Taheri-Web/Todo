@@ -1,8 +1,7 @@
 import User from "@/models/user";
 import connectDB from "@/utils/connectDB";
-import { getSession } from "next-auth/react";
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "./auth/[...nextauth]"
+import { authOptions } from "../../auth/[...nextauth]";
 
 const handler = async (req, res) => {
   if (req.method !== "PATCH") return;

@@ -1,9 +1,9 @@
 import User from "@/models/user";
 import connectDB from "@/utils/connectDB";
 import sortTodos from "@/utils/sortTodos";
-import { getSession } from "next-auth/react";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "./auth/[...nextauth]";
+
 
 const handler = async (req, res) => {
   await connectDB(res);
