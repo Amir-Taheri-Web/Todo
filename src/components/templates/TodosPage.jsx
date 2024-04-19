@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import api from "@/configs/axios";
 import TodoCard from "../modules/TodoCard";
 import styles from "@/styles/TodosPage.module.css";
+import Link from "next/link";
 
 const TodosPage = () => {
   const [todos, setTodos] = useState({});
@@ -62,6 +63,15 @@ const TodosPage = () => {
   }, []);
 
   if (isLoading) return <Loader />;
+
+  if (!todos.todo && !todos.inProgress && !todos.review && !todos.done)
+    return (
+      <div className={styles.addContainer}>
+        <Link href="/add-todo" className={styles.addTodo}>
+          Add Todo
+        </Link>
+      </div>
+    );
 
   return (
     <div className={styles.container}>
