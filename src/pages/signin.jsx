@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import SignInPage from "@/components/templates/SignInPage";
 import { useSession } from "next-auth/react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -13,7 +14,14 @@ const SignIn = () => {
     if (status === "authenticated") router.replace("/");
   }, [status]);
 
-  return <SignInPage />;
+  return (
+    <>
+      <Head>
+        <title>Login</title>
+      </Head>
+      <SignInPage />
+    </>
+  );
 };
 
 export default SignIn;
