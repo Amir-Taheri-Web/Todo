@@ -8,14 +8,21 @@ const ProfileForm = ({
   setFirstName,
   setLastName,
   setIsEdit,
+  password,
+  setPassword,
 }) => {
   const updateHandler = async (event) => {
     event.preventDefault();
 
     try {
-      const res = await api.patch("/api/profile", { firstName, lastName });
+      const res = await api.patch("/api/profile", {
+        firstName,
+        lastName,
+        password,
+      });
       if (res.status === "success") {
         toast.success(res.message);
+        setPassword("");
         setIsEdit(false);
       }
     } catch (error) {
@@ -37,6 +44,13 @@ const ProfileForm = ({
         placeholder="Last Name"
         value={lastName}
         onChange={(e) => setLastName(e.target.value)}
+      />
+
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
 
       <button type="submit">Update Profile</button>

@@ -3,11 +3,12 @@ import api from "@/configs/axios";
 import toast from "react-hot-toast";
 import ProfileForm from "../modules/ProfileForm";
 import ProfileInfo from "../modules/ProfileInfo";
-import styles from "@/styles/ProfilePage.module.css"
+import styles from "@/styles/ProfilePage.module.css";
 
 const ProfilePage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [isEdit, setIsEdit] = useState(false);
 
@@ -16,8 +17,8 @@ const ProfilePage = () => {
       const res = await api.get("/api/profile");
 
       setEmail(res.data.email);
-      setFirstName(res.data?.firstName);
-      setLastName(res.data?.lastName);
+      setFirstName(res.data?.firstName || "");
+      setLastName(res.data?.lastName || "");
     } catch (error) {
       toast.error(error.message);
     }
@@ -39,6 +40,8 @@ const ProfilePage = () => {
           setFirstName={setFirstName}
           setLastName={setLastName}
           setIsEdit={setIsEdit}
+          password={password}
+          setPassword={setPassword}
         />
       ) : (
         <ProfileInfo

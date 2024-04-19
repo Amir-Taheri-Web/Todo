@@ -1,12 +1,13 @@
 import User from "@/models/user";
 import connectDB from "@/utils/connectDB";
-import { getServerSession } from "next-auth/next"
+import { getServerSession } from "next-auth/next";
 import { authOptions } from "./auth/[...nextauth]";
+import { verifyPassword } from "@/utils/auth";
 
 const handler = async (req, res) => {
   await connectDB(res);
 
-  const session = await getServerSession(req, res, authOptions)
+  const session = await getServerSession(req, res, authOptions);
 
   if (!session)
     return res
@@ -23,15 +24,24 @@ const handler = async (req, res) => {
     });
 
   if (req.method === "PATCH") {
-    const { firstName, lastName } = req.body;
+    const { firstName, lastName, password } = req.body;
 
-    if (!firstName.trim() || !lastName.trim()) {
+    if (!firstName.trim() || !lastName.trim() || !password.trim()) {
       return res.status(422).json({
         code: 422,
         status: "failure",
         message: "Please fill all the fields",
       });
     }
+
+    const isValid = await verifyPassword(password, user.password);
+
+    if (!isValid)
+      return res.status(422).json({
+        code: 422,
+        status: "failure",
+        message: "Password is invalid!",
+      });
 
     try {
       user.firstName = firstName;
