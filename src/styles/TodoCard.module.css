@@ -47,7 +47,6 @@
 .list div {
   display: flex;
   gap: 2rem;
-  /* justify-content: space-between; */
   align-items: center;
   margin-top: 3rem;
 }
@@ -93,4 +92,12 @@
   margin-left: auto;
   color: var(--color-text);
   margin-top: 5px;
+}
+
+@media only screen and (max-width: 400px) {
+  .list div {
+    gap: .5rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }

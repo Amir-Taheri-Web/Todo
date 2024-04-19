@@ -26,3 +26,13 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+  .form {
+    width: auto;
+  }
+
+  .form input {
+    width: 100%;
+  }
+}

@@ -54,3 +54,13 @@
   flex-direction: column;
   gap: 1rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .textInput label {
+    width: 100%;
+  }
+
+  .container form {
+    width: auto;
+  }
+}

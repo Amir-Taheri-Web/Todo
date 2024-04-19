@@ -7,6 +7,8 @@ import { Toaster } from "react-hot-toast";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
+import { useState } from "react";
+import Menu from "@/components/modules/Menu";
 
 const Layout = ({ children }) => {
   const { status } = useSession();
@@ -22,6 +24,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <header className={styles.header}>
+        <Menu />
+
         <Link href="/">
           <h1>Todo App</h1>
         </Link>
