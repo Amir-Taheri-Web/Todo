@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import api from "@/configs/axios";
 import toast from "react-hot-toast";
 import ProfileForm from "../modules/ProfileForm";
+import ProfileInfo from "../modules/ProfileInfo";
+import Loader from "../modules/Loader";
 
 const ProfilePage = () => {
   const [firstName, setFirstName] = useState("");
@@ -11,6 +13,7 @@ const ProfilePage = () => {
   const fetchProfile = async () => {
     try {
       const res = await api.get("/api/profile");
+
       setEmail(res.data.email);
       setFirstName(res.data?.firstName);
       setLastName(res.data?.lastName);
@@ -25,7 +28,9 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <p>Email: {email}</p>
+      <p>
+        Email: <span>{email}</span>
+      </p>
       {!firstName || !lastName ? (
         <ProfileForm
           firstName={firstName}
@@ -33,7 +38,9 @@ const ProfilePage = () => {
           setFirstName={setFirstName}
           setLastName={setLastName}
         />
-      ) : null}
+      ) : (
+        <ProfileInfo firstName={firstName} lastName={lastName} />
+      )}
     </div>
   );
 };
