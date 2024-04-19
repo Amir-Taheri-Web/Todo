@@ -66,7 +66,9 @@ const AddTodoPage = ({ type, todo }) => {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={type === "add" ? addHandler : editHandler}>
+      <form
+        onSubmit={type === "add" ? () => addHandler() : () => editHandler()}
+      >
         <div className={styles.textInput}>
           <label htmlFor="title">Title:</label>
           <input

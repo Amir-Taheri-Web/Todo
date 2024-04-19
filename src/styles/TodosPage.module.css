@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 4rem;
   width: 100%;
 }
@@ -11,7 +11,6 @@
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  height: fit-content;
 }
 
 .container h3 {
@@ -39,15 +38,8 @@
   background-color: var(--color-one);
 }
 
-@media only screen and (max-width: 600px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media only screen and (max-width: 1200px) {
   .container {
     grid-template-columns: 1fr;
-    grid-auto-rows: auto;
   }
 }
