@@ -24,6 +24,14 @@ const handler = async (req, res) => {
   if (req.method === "POST") {
     const { firstName, lastName } = req.body;
 
+    if (!firstName.trim() || !lastName.trim()) {
+      return res.status(422).json({
+        code: 422,
+        status: "failure",
+        message: "Please fill all the fields",
+      });
+    }
+
     try {
       user.firstName = firstName;
       user.lastName = lastName;
