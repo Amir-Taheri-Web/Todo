@@ -5,6 +5,9 @@ import { validateEmail, validatePassword } from "@/utils/validate";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { getSession } from "next-auth/react";
+import GitHubProvider from "next-auth/providers/github";
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import clientPromise from "@/lib/db";
 
 const authOptions = {
   session: { strategy: "jwt" },
@@ -44,7 +47,14 @@ const authOptions = {
         return { email };
       },
     }),
+
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
+    }),
   ],
+
+  adapter: MongoDBAdapter(clientPromise),
 };
 
 export default NextAuth(authOptions);

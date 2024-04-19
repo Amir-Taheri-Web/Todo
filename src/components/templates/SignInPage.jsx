@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import styles from "@/styles/SignInPage.module.css";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { FaGithub } from "react-icons/fa";
 
 const SignInPage = () => {
   const [email, setEmail] = useState("");
@@ -11,6 +12,8 @@ const SignInPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
+
+  const { status } = useSession();
 
   const signInHandler = async (event) => {
     event.preventDefault();
@@ -37,6 +40,12 @@ const SignInPage = () => {
     }
   };
 
+  const githubHandler = async () => {
+    signIn("github");
+
+    if (status === "authenticated") toast.success("Logged in");
+  };
+
   return (
     <div className={styles.container}>
       <h2>Login</h2>
@@ -60,6 +69,12 @@ const SignInPage = () => {
           Login
         </button>
       </form>
+
+      <div>
+        <button type="button" onClick={githubHandler}>
+          <FaGithub /> Login with GitHub
+        </button>
+      </div>
 
       <p>
         Do not have an account? <Link href="/signup">Create Account</Link>

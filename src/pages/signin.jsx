@@ -6,7 +6,6 @@ import { useEffect } from "react";
 
 const SignIn = () => {
   const { status } = useSession();
-  console.log(status)
 
   const router = useRouter();
 
