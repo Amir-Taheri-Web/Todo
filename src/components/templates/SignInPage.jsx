@@ -40,12 +40,6 @@ const SignInPage = () => {
     }
   };
 
-  const githubHandler = async () => {
-    signIn("github");
-
-    if (status === "authenticated") toast.success("Logged in");
-  };
-
   return (
     <div className={styles.container}>
       <h2>Login</h2>
@@ -69,12 +63,6 @@ const SignInPage = () => {
           Login
         </button>
       </form>
-
-      <div>
-        <button type="button" onClick={githubHandler}>
-          <FaGithub /> Login with GitHub
-        </button>
-      </div>
 
       <p>
         Do not have an account? <Link href="/signup">Create Account</Link>
