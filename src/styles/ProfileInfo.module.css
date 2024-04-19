@@ -1,0 +1,9 @@
+.container button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--color-one);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: var(--color-white);
+  cursor: pointer;
+}

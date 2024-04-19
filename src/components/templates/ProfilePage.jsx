@@ -3,6 +3,7 @@ import api from "@/configs/axios";
 import toast from "react-hot-toast";
 import ProfileForm from "../modules/ProfileForm";
 import ProfileInfo from "../modules/ProfileInfo";
+import styles from "@/styles/ProfilePage.module.css"
 
 const ProfilePage = () => {
   const [firstName, setFirstName] = useState("");
@@ -27,7 +28,7 @@ const ProfilePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <p>
         Email: <span>{email}</span>
       </p>

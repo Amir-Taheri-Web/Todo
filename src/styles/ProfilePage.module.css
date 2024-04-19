@@ -1,0 +1,10 @@
+.container p {
+    margin-bottom: 3rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-one);
+}
+
+.container p span {
+    color: var(--color-text);
+}

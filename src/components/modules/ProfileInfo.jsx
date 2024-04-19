@@ -1,4 +1,4 @@
-import toast from "react-hot-toast";
+import styles from "@/styles/ProfileInfo.module.css"
 
 const ProfileInfo = ({ firstName, lastName, setIsEdit }) => {
   const editHandler = async () => {
@@ -6,7 +6,7 @@ const ProfileInfo = ({ firstName, lastName, setIsEdit }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <p>
         First Name: <span>{firstName}</span>
       </p>

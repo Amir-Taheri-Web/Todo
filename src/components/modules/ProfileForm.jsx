@@ -1,5 +1,6 @@
 import api from "@/configs/axios";
 import toast from "react-hot-toast";
+import styles from "@/styles/ProfileForm.module.css";
 
 const ProfileForm = ({
   firstName,
@@ -23,7 +24,7 @@ const ProfileForm = ({
   };
 
   return (
-    <form onSubmit={updateHandler}>
+    <form onSubmit={updateHandler} className={styles.form}>
       <input
         type="text"
         placeholder="First Name"

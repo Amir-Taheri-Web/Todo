@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: fit-content;
+}
+
+.form input {
+  width: 25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.7rem;
+  color: var(--color-text);
+  border: none;
+  outline: none;
+  box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.form button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--color-one);
+  padding: 0.5rem;
+  color: var(--color-white);
+  border-radius: 5px;
+  cursor: pointer;
+}
