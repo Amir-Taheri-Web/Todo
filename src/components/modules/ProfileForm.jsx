@@ -31,7 +31,7 @@ const ProfileForm = ({
   };
 
   return (
-    <form onSubmit={updateHandler} className={styles.form}>
+    <div className={styles.form}>
       <input
         type="text"
         placeholder="First Name"
@@ -53,8 +53,8 @@ const ProfileForm = ({
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <button type="submit">Update Profile</button>
-    </form>
+      <button type="button" onClick={updateHandler}>Update Profile</button>
+    </div>
   );
 };
 

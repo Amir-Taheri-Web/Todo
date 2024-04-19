@@ -25,6 +25,7 @@ const ProfilePage = () => {
   };
 
   useEffect(() => {
+    setIsEdit(false);
     fetchProfile();
   }, []);
 
