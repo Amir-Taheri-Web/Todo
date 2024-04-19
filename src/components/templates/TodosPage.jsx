@@ -6,7 +6,7 @@ import TodoCard from "../modules/TodoCard";
 import styles from "@/styles/TodosPage.module.css";
 import Link from "next/link";
 
-const TodosPage = () => {
+const TodosPage = ({status}) => {
   const [todos, setTodos] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -64,7 +64,7 @@ const TodosPage = () => {
 
   if (isLoading) return <Loader />;
 
-  if (!todos.todo && !todos.inProgress && !todos.review && !todos.done)
+  if (status === "authenticated" && !todos.todo && !todos.inProgress && !todos.review && !todos.done)
     return (
       <div className={styles.addContainer}>
         <Link href="/add-todo" className={styles.addTodo}>

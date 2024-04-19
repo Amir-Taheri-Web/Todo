@@ -13,7 +13,7 @@ const Home = () => {
     if (status === "unauthenticated") router.replace("/signin");
   }, [status]);
 
-  return <TodosPage />;
+  return <TodosPage status={status} />;
 };
 
 export default Home;
