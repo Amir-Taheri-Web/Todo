@@ -6,7 +6,7 @@
   justify-content: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   width: fit-content;
-  margin: 3rem auto 0rem;
+  margin: 7rem auto 0rem;
   padding: 2rem;
   border-radius: 10px;
   gap: 4rem;
@@ -56,4 +56,10 @@
 
 .container p a {
   color: var(--color-one);
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    margin: 3rem auto 0rem;
+  }
 }
