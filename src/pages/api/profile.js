@@ -30,8 +30,30 @@ const handler = async (req, res) => {
       await user.save();
 
       return res
-        .status(200)
-        .json({ code: 200, status: "success", message: "Profile updated" });
+        .status(201)
+        .json({ code: 201, status: "success", message: "Profile updated" });
+    } catch (error) {
+      console.log(error);
+
+      return res.status(500).json({
+        code: 500,
+        status: "failure",
+        message: "Connection to server failed",
+      });
+    }
+  }
+
+  if (req.method === "GET") {
+    try {
+      return res.status(200).json({
+        code: 200,
+        status: "success",
+        data: {
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+        },
+      });
     } catch (error) {
       console.log(error);
 
