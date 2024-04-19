@@ -21,7 +21,7 @@ const handler = async (req, res) => {
       message: "You are unauthorized. Login again",
     });
 
-  if (req.method === "POST") {
+  if (req.method === "PATCH") {
     const { firstName, lastName } = req.body;
 
     if (!firstName.trim() || !lastName.trim()) {
