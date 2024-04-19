@@ -26,7 +26,7 @@ const handler = async (req, res) => {
   if (req.method === "PATCH") {
     const { firstName, lastName, password } = req.body;
 
-    if (!firstName.trim() || !lastName.trim() || !password.trim()) {
+    if (!password.trim()) {
       return res.status(422).json({
         code: 422,
         status: "failure",

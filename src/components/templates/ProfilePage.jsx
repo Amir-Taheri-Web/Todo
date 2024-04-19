@@ -25,7 +25,6 @@ const ProfilePage = () => {
   };
 
   useEffect(() => {
-    setIsEdit(false);
     fetchProfile();
   }, []);
 
@@ -34,7 +33,7 @@ const ProfilePage = () => {
       <p>
         Email: <span>{email}</span>
       </p>
-      {!firstName || !lastName || isEdit ? (
+      {isEdit ? (
         <ProfileForm
           firstName={firstName}
           lastName={lastName}
