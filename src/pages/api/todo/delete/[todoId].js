@@ -1,13 +1,15 @@
 import User from "@/models/user";
 import connectDB from "@/utils/connectDB";
 import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "./auth/[...nextauth]"
 
 const handler = async (req, res) => {
   if (req.method !== "DELETE") return;
 
   await connectDB(res);
 
-  const session = await getSession({ req });
+  const session = await getServerSession(req, res, authOptions);
 
   if (!session)
     return res
@@ -26,7 +28,10 @@ const handler = async (req, res) => {
   const { todoId } = req.query;
 
   try {
-    await User.updateOne({ _id: user._id }, { $pull: { todos: { _id: todoId } } });
+    await User.updateOne(
+      { _id: user._id },
+      { $pull: { todos: { _id: todoId } } }
+    );
 
     return res
       .status(200)
