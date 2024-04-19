@@ -5,12 +5,18 @@ import { FaUser } from "react-icons/fa";
 import styles from "@/styles/Layout.module.css";
 import { Toaster } from "react-hot-toast";
 import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 const Layout = ({ children }) => {
   const { status } = useSession();
 
+  const router = useRouter();
+
   const logoutHandler = async () => {
-    signOut();
+    signOut({ redirect: false });
+    toast.success("Logged out");
+    router.push("/signin");
   };
 
   return (

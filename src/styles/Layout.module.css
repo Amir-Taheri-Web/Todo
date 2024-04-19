@@ -1,10 +1,26 @@
 .header {
   background-color: var(--color-one);
-  padding: 2rem 2rem 5rem;
+  padding: 2rem 5rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
 }
 
 .header h1 {
   color: var(--color-white);
+  width: fit-content;
+}
+
+.header button {
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: .5rem 1rem;
+  width: 8rem;
+  border-radius: 5px;
+  background: none;
 }
 
 .main {
