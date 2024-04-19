@@ -1,4 +1,10 @@
-const ProfileInfo = ({ firstName, lastName }) => {
+import toast from "react-hot-toast";
+
+const ProfileInfo = ({ firstName, lastName, setIsEdit }) => {
+  const editHandler = async () => {
+    setIsEdit(true);
+  };
+
   return (
     <div>
       <p>
@@ -8,7 +14,9 @@ const ProfileInfo = ({ firstName, lastName }) => {
         Last Name: <span>{lastName}</span>
       </p>
 
-      <button type="button">Edit</button>
+      <button type="button" onClick={editHandler}>
+        Edit
+      </button>
     </div>
   );
 };

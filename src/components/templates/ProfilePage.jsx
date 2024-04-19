@@ -3,12 +3,12 @@ import api from "@/configs/axios";
 import toast from "react-hot-toast";
 import ProfileForm from "../modules/ProfileForm";
 import ProfileInfo from "../modules/ProfileInfo";
-import Loader from "../modules/Loader";
 
 const ProfilePage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [isEdit, setIsEdit] = useState(false);
 
   const fetchProfile = async () => {
     try {
@@ -31,15 +31,20 @@ const ProfilePage = () => {
       <p>
         Email: <span>{email}</span>
       </p>
-      {!firstName || !lastName ? (
+      {!firstName || !lastName || isEdit ? (
         <ProfileForm
           firstName={firstName}
           lastName={lastName}
           setFirstName={setFirstName}
           setLastName={setLastName}
+          setIsEdit={setIsEdit}
         />
       ) : (
-        <ProfileInfo firstName={firstName} lastName={lastName} />
+        <ProfileInfo
+          firstName={firstName}
+          lastName={lastName}
+          setIsEdit={setIsEdit}
+        />
       )}
     </div>
   );

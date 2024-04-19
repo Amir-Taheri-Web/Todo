@@ -1,13 +1,22 @@
 import api from "@/configs/axios";
 import toast from "react-hot-toast";
 
-const ProfileForm = ({ firstName, lastName, setFirstName, setLastName }) => {
+const ProfileForm = ({
+  firstName,
+  lastName,
+  setFirstName,
+  setLastName,
+  setIsEdit,
+}) => {
   const updateHandler = async (event) => {
     event.preventDefault();
 
     try {
-      const res = await api.post("/api/profile", { firstName, lastName });
-      if (res.status === "success") toast.success(res.message);
+      const res = await api.patch("/api/profile", { firstName, lastName });
+      if (res.status === "success") {
+        toast.success(res.message);
+        setIsEdit(false);
+      }
     } catch (error) {
       toast.error(error.message);
     }
