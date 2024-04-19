@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  width: 100%;
+  width: 22rem;
 }
 
 .container form input {
@@ -59,7 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
+  gap: 0.5rem;
   background-color: var(--color-black);
 }
 
@@ -69,4 +69,14 @@
 
 .container p a {
   color: var(--color-one);
+}
+
+@media only screen and (max-width: 500px) {
+  .container form {
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+  }
 }
