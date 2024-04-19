@@ -2,7 +2,6 @@ import AddTodoPage from "@/components/templates/AddTodoPage";
 import User from "@/models/user";
 import connectDB from "@/utils/connectDB";
 import { getServerSession } from "next-auth";
-import { getSession } from "next-auth/react";
 import { authOptions } from "../api/auth/[...nextauth]";
 
 const EditTodo = ({ todo }) => {
@@ -15,7 +14,6 @@ const getServerSideProps = async ({ req, res, query }) => {
   await connectDB();
 
   const session = await getServerSession(req, res, authOptions);
-  console.log(session)
 
   if (!session)
     return {
