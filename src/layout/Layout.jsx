@@ -4,14 +4,33 @@ import { MdAddCircle } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import styles from "@/styles/Layout.module.css";
 import { Toaster } from "react-hot-toast";
+import { signOut, useSession } from "next-auth/react";
 
 const Layout = ({ children }) => {
+  const { status } = useSession();
+
+  const logoutHandler = async () => {
+    signOut();
+  };
+
   return (
     <>
       <header className={styles.header}>
         <Link href="/">
           <h1>Todo App</h1>
         </Link>
+
+        {status === "authenticated" && (
+          <button type="button" onClick={logoutHandler}>
+            Logout
+          </button>
+        )}
+        {status === "unauthenticated" && (
+          <button type="button">
+            <Link href="/signin">Login</Link>
+          </button>
+        )}
+
         <Toaster />
       </header>
 
